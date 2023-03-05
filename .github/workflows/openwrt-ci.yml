@@ -51,8 +51,10 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Fetch configuration file
+        env:
+          CONFIG_URL: "https://gist.githubusercontent.com/ManiaciaChao/298c955ab6b44c9efe112b37856d8963/raw/e80ea17143aa96f62ddb9851d67d55cdc7c0412d/.config"
         run: |
-          wget ${{ CI.CONFIG_URL }} -O .config
+          wget $CONFIG_URL -O .config
           cat .config
 
       - name: Download packages
